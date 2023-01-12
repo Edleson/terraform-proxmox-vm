@@ -675,3 +675,9 @@ variable "serial" {
     type = "socket"
   }
 }
+
+variable "proxmox_vm_depends_on" {
+  type    = any
+  default = []
+  description = "Depends_on variable"
+}

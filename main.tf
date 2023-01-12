@@ -158,4 +158,7 @@ resource "proxmox_vm_qemu" "server" {
     #         network,
     #     ]
     # }
+
+    depends_on = [var.proxmox_vm_depends_on]
+
 }
