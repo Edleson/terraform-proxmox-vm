@@ -39,8 +39,6 @@ resource "null_resource" "cloud_init_config_files" {
 }
 
 resource "proxmox_vm_qemu" "server" {
-    
-
     count                           = var.create_vm ? 1 : 0
     name                            = var.name 
     target_node                     = var.target_node
@@ -157,9 +155,10 @@ resource "proxmox_vm_qemu" "server" {
     #     ]
     # }
 
-    depends_on = concat(
+    /* depends_on = var.proxmox_vm_depends_on */
+    /* concat(
         var.proxmox_vm_depends_on,
         [null_resource.cloud_init_config_files]
-    )
+    ) */
 
 }
