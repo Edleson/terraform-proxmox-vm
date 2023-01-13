@@ -1,8 +1,8 @@
-terraform {
+/* terraform {
     required_providers {
         proxmox = {
             source = "telmate/proxmox"
-            version = "2.9.6"
+            version = "2.9.11"
         }
     }
 }
@@ -21,9 +21,9 @@ provider "proxmox" {
     pm_log_file         = var.pm_log_file
     pm_timeout          = var.pm_timeout
     pm_debug            = var.pm_debug
-}
+} */
 
-resource "null_resource" "cloud_init_config_files" {
+/* resource "null_resource" "cloud_init_config_files" {
     count = var.pm_enable_user_data ? 1 : 0
     connection {
         type     = var.pm_connection_type
@@ -36,7 +36,7 @@ resource "null_resource" "cloud_init_config_files" {
         source      = var.pm_user_data_file
         destination = "/var/lib/vz/snippets/${var.pm_user_data_id}.yml"
     }
-}
+} */
 
 resource "proxmox_vm_qemu" "server" {
     count                           = var.create_vm ? 1 : 0
